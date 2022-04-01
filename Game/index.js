@@ -22,9 +22,13 @@ app.use(sass({
     prefix: "/css"
 }));
 app.use("/img", express.static(`${__dirname}/public/css/skier.png`));
-app.use("/css", express.static(`${__dirname}/public/css`));
+app.use("/css", [
+    express.static(`${__dirname}/skifree/css`),
+    express.static(`${__dirname}/public/css`)
+]);
 app.use("/webfonts", express.static(`${__dirname}/node_modules/@fortawesome/fontawesome-free/webfonts`));
 app.use("/js", [
+    express.static(`${__dirname}/skifree/js`),
     express.static(`${__dirname}/public/js`),
     express.static(`${__dirname}/node_modules/bootstrap/dist/js`)
 ]);
