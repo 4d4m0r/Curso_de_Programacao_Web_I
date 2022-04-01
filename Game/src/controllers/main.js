@@ -6,4 +6,8 @@ const game = (req,res) => {
     res.render("main/game");
 }
 
-export default {about,game}
+const ui = (req,res) => {
+    res.render("main/ui");
+}
+
+export default {about,game,ui}
