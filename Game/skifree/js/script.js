@@ -7,18 +7,27 @@
 
   let montanha;
   let skier;
+  let velo;
+  let distancia;
 
   const arvores = [];
   
   function init() {
     montanha = new Montanha();
     skier = new Skier();
-    setInterval(run, 1000/FPS);
+    velo = setInterval(run, 1000/FPS);
   }
 
   window.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') skier.mudarDirecao(-1)
     else if (e.key === 'ArrowRight') skier.mudarDirecao(+1);
+    if(e.key === 'f'){
+      clearInterval(velo);
+      velo = setInterval(run, 3);
+    }else{
+      clearInterval(velo);
+      velo = setInterval(run, 1000/FPS);
+    }
   })
 
   class Montanha {
