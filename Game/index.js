@@ -33,6 +33,7 @@ app.use("/js", [
     express.static(`${__dirname}/node_modules/bootstrap/dist/js`)
 ]);
 
+app.use(express.urlencoded({extended: false}));
 app.use(router);
 app.use(morgan("combined"));
 
