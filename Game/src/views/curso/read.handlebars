@@ -1,7 +1,10 @@
 <br>
 <div class="container">
     <div class="card border-primary mb-3" style="max-width: 20rem;">
-        <div class="card-header">{{curso.nome}}</div>
+        <div class="card-header">
+            {{curso.nome}}
+            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-trash" style="margin-left: 90px"></i></a>
+        </div>
         <div class="card-body">
             <div><b>Sigla:</b> {{curso.sigla}}</div>
             <div><b>Nome:</b> {{curso.nome}}</div>
@@ -9,4 +12,24 @@
             <div><b>Área:</b> {{curso.areaId}}</div>  
         </div>
     </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
