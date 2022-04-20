@@ -1,4 +1,4 @@
 Linha 4: Em Html os comentários são feitos utilizando <!- frase ->.
-Linhas 7 e 8: Para atribuir valores no css,deve-se usar ":" e não "=".
+Linhas 8 e 9: Para atribuir valores no css,deve-se usar ":" e não "=".
 Linha 17: A tag strong não foi fechada,assim o texto todo ficou em negrito.
 Linha 24: Objetos em javascript são identificados com "this" e não "that".
