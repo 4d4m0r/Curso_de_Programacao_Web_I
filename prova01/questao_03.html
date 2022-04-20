@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>questao_03</title>
+        <script>
+            function verifica(){
+                let letra = document.querySelector("#texto");
+                console.log(letra);
+                letra.addEventListener("click",function(){
+                    event.preventDefault();
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <input id="texto" type="text" onkeyup="verifica()">
+    </body>
+</html>

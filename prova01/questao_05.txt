@@ -1,0 +1,7 @@
+MVC
+
+MVC é um padrão de arquitetura de software,que visa otimizar as requisiçôes feitas pelos usuários do ambiente web.
+É dividido em 3 conceitos.
+Modelos que gerenciam e controlar como os dados vão se comportar entre as funções.
+Controladores que intermediam as requisiçôes feitas pelas views com os dados fornecidos pelos modelos.
+View que é responsável pela parte visual do usuário,voltado para aparência.
