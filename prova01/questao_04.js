@@ -8,7 +8,7 @@ function acessaArq (arq) {
     });
 }
 
-async function calcularValor () {
+async function Soma () {
     var total = 0;
     total += await acessaArq("1.txt");
     total += await acessaArq("2.txt");
@@ -16,4 +16,4 @@ async function calcularValor () {
     console.log(total);
 }
 
-calcularValor();
+Soma();

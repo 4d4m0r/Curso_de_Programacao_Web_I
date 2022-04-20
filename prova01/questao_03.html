@@ -1,18 +1,26 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>questao_03</title>
-        <script>
-            function verifica(){
-                let letra = document.querySelector("#texto");
-                console.log(letra);
-                letra.addEventListener("click",function(){
-                    event.preventDefault();
-                });
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>questao_03</title>
+  <script>
+    function pegaValor () {
+      var myInput = document.getElementById('myInput');
+      myInput.addEventListener('keypress', (teclaDigitada) => 
+        {
+            var letra = teclaDigitada.key;
+            if (letra === 'q' || letra === 'Q' ||  letra === 'w' || letra === 'W' || letra === 'x' || letra === 'X') {
+                teclaDigitada.preventDefault();
             }
-        </script>
-    </head>
-    <body>
-        <input id="texto" type="text" onkeyup="verifica()">
-    </body>
+        }
+      );
+    }
+  </script>
+</head>
+<body onload="pegaValor()">
+<input type="text" id="myInput"/>
+
+</body>
 </html>
