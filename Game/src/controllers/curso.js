@@ -18,7 +18,7 @@ async function create(req,res) {
             areaId: req.body.area,
             descricao: req.body.descricao
         });
-        res.redirect("/ui");
+        res.redirect("/curso");
     }
 }
 async function read(req,res) {
@@ -31,7 +31,14 @@ async function update(req,res) {
     
 }
 async function remove(req,res) {
-    
+    const { id } = req.params;
+    try{
+        await Curso.destroy( {where: { id: id } });
+        res.send("Curso apagado");
+    }catch(error){
+        console.log(error);
+        res.status(500).send(error);
+    }
 }
 
 module.exports = {index,create,read,update,remove}

@@ -8,14 +8,13 @@
   let montanha;
   let skier;
   let velo;
-  let distancia = 0;
 
   const arvores = [];
   
   function init() {
     montanha = new Montanha();
     skier = new Skier();
-    vida(skier);
+    Painel = new Painel();
     velo = setInterval(run, 1000/FPS);
   }
 
@@ -47,7 +46,8 @@
       this.element.className = this.direcoes[this.direcao];
       this.element.style.top = '20px';
       this.element.style.left = parseInt(TAMX/2)-8 + 'px';
-      this.vida = 3;
+      this.vida;
+      this.distancia = 0;
     }
     mudarDirecao(giro) {
       if (this.direcao + giro >= 0 && this.direcao + giro <= 2) {
@@ -79,13 +79,8 @@
     }
     arvores.forEach(a => {
       a.element.style.top = parseInt(a.element.style.top)-1 + 'px';
-      distancia += 1;
-      document.getElementById("distancia").innerHTML = distancia;
     })
     skier.andar();
-  }
-  function vida(skier){
-    document.getElementById("vida").innerHTML = skier.vida;
   }
   init();
 

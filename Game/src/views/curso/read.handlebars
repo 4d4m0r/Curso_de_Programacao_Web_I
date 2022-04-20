@@ -20,16 +20,23 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Deleção de curso</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        Tem certeza que deseja deletar esse curso?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button id="botao-delecao" type="button" class="btn btn-primary">Sim,quero deletar!</button>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  const botaoDelecao = document.getElementById("botao-delecao");
+  botaoDelecao.onclick = function(){
+    apagarCurso({{curso.id}})
+  }
+</script>

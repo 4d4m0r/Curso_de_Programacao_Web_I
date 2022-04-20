@@ -5,4 +5,7 @@ const ui = (req,res) => {
     res.render("main/ui");
 }
 
-export default {about,ui}
+const game = (req,res) => {
+    res.render("main/game");
+}
+export default {about,ui,game}
