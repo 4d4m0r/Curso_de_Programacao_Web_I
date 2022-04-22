@@ -1,6 +1,7 @@
 <div class="container">
     <h1>Adicionar Curso</h1>
     <form action="/curso/create" method="POST">
+        <input type="hidden" name="_csrf" value="{{csrf}}">
         <div class="form-group">
             <label for="sigla">Sigla do Curso</label>
             <input name="sigla" id="sigla" type="text" class="form-control" placeholder="Informe a sigla do curso.">
@@ -24,11 +25,11 @@
                 </label><br>
                 <label class="form-check-label">
                     <input type="radio" class="form-check-input" name="area" id="area" value="2" checked="">
-                    Ciências Exatas.
+                    Ciências Biológicas.
                 </label><br>
                 <label class="form-check-label">
                     <input type="radio" class="form-check-input" name="area" id="area" value="3" checked="">
-                    Ciências Biológicas.
+                    Ciências Humanas.
                 </label><br>
             </div>
         </fieldset>

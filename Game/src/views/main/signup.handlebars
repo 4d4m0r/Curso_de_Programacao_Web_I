@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>Criação de conta</h1>
+    <form action="/signup" method="POST">
+        <input type="hidden" name="_csrf" value="{{csrf}}">
+        <div class="form-group">
+            <label for="nome" class="form-label mt-4">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome">
+        </div>
+
+        <div class="form-group">
+            <label for="email" class="form-label mt-4">Email</label>
+            <input type="email" class="form-control" id="email" name="email">
+        </div>
+
+        <div class="form-group">
+            <label for="cursoId" class="form-label mt-4">Informe seu curso</label>
+            <select class="form-select" id="cursoId" name="cursoId">
+                {{#each cursos}}
+                    <option value="{{id}}">{{nome}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="senha" class="form-label mt-4">Senha</label>
+            <input type="password" class="form-control" id="senha" name="senha">
+        </div>
+        <div class="form-group">
+            <label for="confirmar-senha" class="form-label mt-4">Confirme sua senha</label>
+            <input type="password" class="form-control" id="confirmar-senha" name="confirmar-senha">
+        </div>
+
+        <input class="input_box" name="checkbox" type="checkbox" value="termo" required/>Li e concordo com os termos de uso.<br>
+         <button type="submit" class="btn btn-primary">Confirmar</button>
+    </form>
+</div>

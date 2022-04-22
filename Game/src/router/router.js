@@ -9,6 +9,9 @@ const router = express.Router();
 router.get("/about",mainController.about);
 router.get("/ui",mainController.ui);
 router.get("/game",mainController.game);
+router.get("/signup",mainController.signup);
+router.post("/signup",mainController.signup);
+
 
 //Area controller
 router.get("/areas",areaController.index);

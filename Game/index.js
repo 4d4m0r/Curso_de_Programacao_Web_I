@@ -2,6 +2,11 @@ import express from "express"
 import router from "./src/router/router"
 import { engine } from "express-handlebars"
 import sass from "node-sass-middleware";
+import cookieParser from "cookie-parser";
+import csurf from "csurf";
+import {v4 as uuidv4} from "uuid";
+import session from "express-session";
+
 const morgan = require("morgan");
 
 const app = express();
@@ -34,6 +39,46 @@ app.use("/js", [
 ]);
 
 app.use(express.urlencoded({extended: false}));
+
+app.use(cookieParser());
+app.use(csurf({cookie:true}));
+app.get(("/uuid"),(req,res) => {
+    res.send(uuidv4())
+})
+
+app.get("/cookie",(req,res) => {
+    if(!('usuario' in req.cookies)){
+        res.cookie('usuario','1234');
+        res.send("Usuario não identificado.Criando cookie!")
+    }else{
+        res.send(`Usuario identificado.ID ${req.cookies['usuario']}!`)       
+    }
+})
+
+app.use(session({
+    genid: (req) => {
+        return uuidv4()
+    },
+    secret:'Hi9Cf#mK98',
+    resave: false,
+    saveUninitialized: true
+}))
+
+app.get("/session", (req,res) => {
+    if(!('qtditenscarrinho' in req.session)){
+        req.session.qtditenscarrinho = 0;
+        res.send("Usuario sem carrinho.Iniciando carrinho");
+    }else{
+        res.send("Carrinho criado");
+    }
+});
+
+app.get("/apagar-cookie",(req,res) => {
+    res.clearCookie('usuario');
+    res.send("Cookie apagado.")
+})
+
+
 app.use(router);
 app.use(morgan("combined"));
 

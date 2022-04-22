@@ -10,7 +10,9 @@ async function index(req,res) {
 }
 async function create(req,res) {
     if(req.route.methods.get){
-        res.render("curso/create");
+        res.render("curso/create", {
+            csrf: req.csrfToken()
+        });
     }else{
         await Curso.create({
             sigla: req.body.sigla,
