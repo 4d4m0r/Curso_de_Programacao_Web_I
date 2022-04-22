@@ -33,6 +33,20 @@
                 <a class="nav-link" href="/areas">Áreas</a>
                 </li>
             </ul>
+            <ul class="navbar-nav ms-md-auto">
+                {{#if isLogged}}
+                    <li class="nav-item">
+                        <a href="/logout" class="nav-item">Logout</a>
+                    </li>
+                {{else}}
+                    <li class="nav-item">
+                        <a href="/login" class="nav-item">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/signup" class="nav-item">Signup</a>
+                    </li>
+                {{/if}}
+            </ul>
             </div>
         </div>
     </nav>

@@ -6,11 +6,13 @@ import cookieParser from "cookie-parser";
 import csurf from "csurf";
 import {v4 as uuidv4} from "uuid";
 import session from "express-session";
+import dotenv from "dotenv"
 
 const morgan = require("morgan");
 
 const app = express();
-const PORT = 7000;
+dotenv.config();
+const PORT = process.env.PORT;
 
 app.engine('handlebars', engine({
     helpers: require(`${__dirname}/src/views/helpers/helpers`),
@@ -46,14 +48,6 @@ app.get(("/uuid"),(req,res) => {
     res.send(uuidv4())
 })
 
-app.get("/cookie",(req,res) => {
-    if(!('usuario' in req.cookies)){
-        res.cookie('usuario','1234');
-        res.send("Usuario não identificado.Criando cookie!")
-    }else{
-        res.send(`Usuario identificado.ID ${req.cookies['usuario']}!`)       
-    }
-})
 
 app.use(session({
     genid: (req) => {
@@ -64,18 +58,9 @@ app.use(session({
     saveUninitialized: true
 }))
 
-app.get("/session", (req,res) => {
-    if(!('qtditenscarrinho' in req.session)){
-        req.session.qtditenscarrinho = 0;
-        res.send("Usuario sem carrinho.Iniciando carrinho");
-    }else{
-        res.send("Carrinho criado");
-    }
-});
-
-app.get("/apagar-cookie",(req,res) => {
-    res.clearCookie('usuario');
-    res.send("Cookie apagado.")
+app.use((req,res,next) => {
+    app.locals.isLogged = 'uid' in req.session;
+    next();
 })
 
 

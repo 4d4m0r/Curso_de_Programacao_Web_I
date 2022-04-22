@@ -35,7 +35,43 @@ const signup = async (req,res) => {
             })
             //await Usuario.create(usuario);
         }catch(error){}
+    }  
+}
+
+const login = async (req,res) => {
+    if(req.route.methods.get){
+        res.render("main/login", {
+            csrf:req.csrfToken(),
+        })
+    }else{
+        const credenciais = req.body;
+        const user = await Usuario.findOne({where:{email:credenciais.email}});
+        if(user){
+            bcrypt.compare(credenciais.senha,user.senha, (error,sucesso) =>{
+                if(error) console.log(error);
+                else if(sucesso){
+                    req.session.uid = user.id;
+                    res.redirect("/ui");
+                }
+                else{
+                    res.render("main/login", {
+                        csrf:req.csrfToken(),
+                    })
+                }
+            });
+        }else{
+            res.render("main/login", {
+                csrf:req.csrfToken(),
+            })
+        }
     }
     
 }
-export default {about,ui,game,signup}
+
+const logout = (req,res) => {
+    req.session.destroy((error) =>{
+        if(error) console.log(error)
+        else res.redirect("/ui"); 
+    })
+}
+export default {about,ui,game,signup,login,logout}
