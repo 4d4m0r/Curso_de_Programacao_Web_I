@@ -1,4 +1,5 @@
 #montanha {
+  background-color: white;
   border: 1px solid black;
   position: relative;
   overflow: hidden;
@@ -45,6 +46,7 @@
 }
 
 #placar{
+  background-color: white;
   border: 1px solid black;
   position: relative;
   overflow: hidden;

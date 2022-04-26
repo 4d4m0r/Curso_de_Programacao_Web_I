@@ -81,8 +81,8 @@
       let posSkier = skier.getBoundingClientRect();
 
       return {
-        posX: parseInt(posSkier.left),
-        posY:  parseInt(posSkier.top),
+        posX: parseInt(posSkier.x),
+        posY:  parseInt(posSkier.y),
         altura:  parseInt(posSkier.height),
         largura:  parseInt(posSkier.width)
       }
@@ -112,17 +112,22 @@
       const obstaculos = this.posicaoObs();
       const esquiador = skier.posicaoSkier();
 
-      if(obstaculos.posX < esquiador.posX + esquiador.largura &&
-        obstaculos.posX + obstaculos.largura > esquiador.posX &&
-        obstaculos.posY < esquiador.posY + esquiador.altura &&
-        obstaculos.posY + obstaculos.altura > esquiador.posY){
+      let posLarguraEsquiador = esquiador.posX + esquiador.largura;
+      let posLarguraObs = obstaculos.posX + obstaculos.largura;
+
+      let posAlturaEsquiador = esquiador.posY + esquiador.altura;
+      let posAlturaObs = obstaculos.posY + obstaculos.altura;
+
+      if(obstaculos.posX < posLarguraEsquiador && posLarguraObs > esquiador.posX &&
+        obstaculos.posY < posAlturaEsquiador && posAlturaObs > esquiador.posY){
           if(!obstaculo.element.classList.contains('batido')){
             obstaculo.element.classList.toggle('batido');
             if(obstaculo.element.classList.contains('cogumelo')){
               cogumelo(skier);
               console.log("cogumelo")
-              if(obstaculo.element.parentNode){
-                obstaculo.element.parentNode.removeChild(obstaculo.element);
+              var pegouCogumelo = obstaculo.element.parentNode;
+              if(pegouCogumelo){
+                pegouCogumelo.removeChild(obstaculo.element);
               }
             }else{
               morreu(skier);
@@ -149,10 +154,6 @@
       console.log(skier.vida);
       vida.textContent = vidaAtt; 
       skier.element.className = 'para-baixo';
-      setTimeout(() => {
-        velo = setInterval(run, 1000/FPS)
-
-      }, 1000);
     }else if(skier.vida == 0){
       var vidaAtt = skier.vida;
       vida.textContent = vidaAtt;

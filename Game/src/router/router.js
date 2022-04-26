@@ -8,11 +8,11 @@ const router = express.Router();
 
 //Main controller
 router.get("/about",mainController.about);
-router.get("/ui",mainController.ui);
+router.get("/ui",authCheck,mainController.ui);
 router.get("/game",authCheck,mainController.game);
 router.get("/signup",mainController.signup);
 router.post("/signup",mainController.signup);
-router.get("/login",mainController.login);
+router.get("/",mainController.login);
 router.post("/login",mainController.login);
 router.get("/logout",mainController.logout);
 
