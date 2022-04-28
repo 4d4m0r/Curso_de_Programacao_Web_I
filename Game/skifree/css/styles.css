@@ -1,9 +1,8 @@
 #montanha {
+  background-color: white;
   border: 1px solid black;
   position: relative;
   overflow: hidden;
-  background-color: white;
-  margin-left: 260px;
 }
 
 #skier {
@@ -16,6 +15,13 @@
   width: 28px;
   height: 32px;
   position: absolute;
+}
+
+.correr {
+  background-image: url(skier.png);
+  background-position: -67px -2px;
+  width: 15px;
+  height: 32px;
 }
 
 .para-frente {
@@ -38,15 +44,70 @@
   width: 22px;
   height: 28px;
 }
-#painel {
+
+#placar{
+  background-color: white;
+  border: 1px solid black;
+  position: relative;
+  overflow: hidden;
+  margin-left: 205px;
   width: 100px;
   height: 100px;
-  border: 1px;
-  background-color: white;
+  top: -402px;
+  left: 100px
 }
-#painel1 {
-  width: 100px;
-  height: 100px;
-  border: 1px;
-  background-color: white;
+.arbusto {
+  background-image: url(obstacles.png);
+  background-position: 265px -100px;
+  width: 24px;
+  height: 30px;
+  position: absolute;
+}
+.rocha {
+  background-image: url(obstacles.png);
+  background-position: 307px -51px;
+  width: 22px;
+  height: 13px;
+  position: absolute;
+}
+.toco {
+  background-image: url(obstacles.png);
+  background-position: -253px -52px;
+  width: 18px;
+  height: 12px;
+  position: absolute;
+}
+.arvoreG {
+  background-image: url(obstacles.png);
+  background-position: 241px -67px;
+  width: 34px;
+  height: 63px;
+  position: absolute;
+}
+.arvoreC {
+  background-image: url(obstacles.png);
+  background-position: -72px -104px;
+  width: 22px;
+  height: 26px;
+  position: absolute;
+}
+.cachorro {
+  background-image: url(obstacles.png);
+  background-position: -48px -209px;
+  width: 20px;
+  height: 19px;
+  position: absolute;
+}
+.cogumelo {
+    background-image: url(obstacles.png);
+    background-position: -271px -52px;
+    width: 10px;
+    height: 12px;
+    position: absolute;
+}
+.game-over {
+  background-image: url(skier.png);
+  background-position: -239px -3px;
+  width: 32px;
+  height: 25px;
 }

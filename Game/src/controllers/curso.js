@@ -1,6 +1,7 @@
 const curso = require("../models/curso");
 const models = require("../models/index")
 const Curso = models.Curso;
+const Area = models.Area; 
 
 async function index(req,res) {
     const cursos = await Curso.findAll();
@@ -10,7 +11,9 @@ async function index(req,res) {
 }
 async function create(req,res) {
     if(req.route.methods.get){
-        res.render("curso/create");
+        res.render("curso/create", {
+            csrf: req.csrfToken()
+        });
     }else{
         await Curso.create({
             sigla: req.body.sigla,
@@ -22,10 +25,15 @@ async function create(req,res) {
     }
 }
 async function read(req,res) {
-    const curso = await Curso.findOne({where: {id: req.params.id }});
-    res.render("curso/read", {
-        curso: curso.toJSON()
-    })
+    const { id } = req.params;
+    try {
+        const curso = await Curso.findByPk(id, {include: Area})
+        res.render("curso/read", {
+            curso: curso.toJSON()
+        });
+    } catch (error) {
+        console.log(error);
+    }
 }
 async function update(req,res) {
     
