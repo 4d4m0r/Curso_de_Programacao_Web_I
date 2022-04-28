@@ -71,7 +71,7 @@ const login = async (req,res) => {
 const logout = (req,res) => {
     req.session.destroy((error) =>{
         if(error) console.log(error)
-        else res.redirect("/"); 
+        else res.redirect("/login"); 
     })
 }
 export default {about,ui,game,signup,login,logout}
