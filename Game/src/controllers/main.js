@@ -30,7 +30,7 @@ const signup = async (req,res) => {
                         senha:hash,
                         cursoId: usuario.cursoId
                     });
-                    res.redirect("/ui");
+                    res.redirect("/");
                 })
             })
             //await Usuario.create(usuario);

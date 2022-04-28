@@ -30,7 +30,7 @@ router.delete("/curso/:id",authCheck, cursoController.remove);
 
 router.get("/jogo/index",authCheck,jogoController.index);
 router.get("/jogo/ranking",authCheck, jogoController.ranking);
-router.get("/jogo/save",authCheck, jogoController.save);
+router.get("/jogo/save/:id",authCheck, jogoController.save);
 
 
 

@@ -131,7 +131,6 @@
               }
             }else{
               morreu(skier);
-              console.log("morreu")
             } 
           }
       }
@@ -144,11 +143,13 @@
     if (skier.vida > 0) {
       distancia = distancia + 1;
       cont.textContent = distancia;
+      skier.distancia = distancia;
     }
   }
   function morreu(skier){
     skier.vida--;
     console.log(skier.vida);
+    console.log(skier.pontuacao);
     if(!(skier.vida === 0)){
       var vidaAtt = skier.vida;
       console.log(skier.vida);
@@ -158,6 +159,8 @@
       var vidaAtt = skier.vida;
       vida.textContent = vidaAtt;
       clearInterval(velo);
+      enviaDistancia(skier.distancia);
+      window.location="/jogo/ranking"
     }
     
   }
