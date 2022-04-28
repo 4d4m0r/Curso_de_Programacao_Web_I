@@ -36,6 +36,21 @@ async function read(req,res) {
     }
 }
 async function update(req,res) {
+    const curso = await Curso.findOne({where: {id: req.params.id}});
+    if(req.route.methods.get){
+        res.render("curso/update", {
+            curso:curso.toJSON(),
+            csrf: req.csrfToken()
+        });
+    }else{
+        await Curso.update({
+            sigla: req.body.sigla,
+            nome: req.body.nome,
+            areaId: req.body.area,
+            descricao: req.body.descricao
+        },{where: {id: req.params.id}});
+        res.redirect("/curso/"+req.params.id);
+    }
     
 }
 async function remove(req,res) {
