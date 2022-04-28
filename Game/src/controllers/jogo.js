@@ -20,7 +20,11 @@ async function save(req,res){
 }
 
 const ranking = async (req,res) => {
-    const partidas = await Partida.findAll();
+    const partidas = await Partida.findAll({
+        order: [
+            ['pontuacao','DESC']
+        ]
+    });
     res.render("jogo/ranking",{
         partidas: partidas.map((partida)=> partida.toJSON())
     });
