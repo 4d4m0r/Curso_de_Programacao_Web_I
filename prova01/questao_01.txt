@@ -1,3 +1,5 @@
+Comentario: Todos os erros foram identificados corretamente. Só uma observação, comentários em HTML são <!-- frase -->. Nota 2.0
+
 Linha 4: Em Html os comentários são feitos utilizando <!- frase ->.
 Linhas 8 e 9: Para atribuir valores no css,deve-se usar ":" e não "=".
 Linha 17: A tag strong não foi fechada,assim o texto todo ficou em negrito.

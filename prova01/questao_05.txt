@@ -1,3 +1,5 @@
+Comentário: Padrão MVC descrito corretamente. Nota 2.0
+
 MVC
 
 MVC é um padrão de arquitetura de software,que visa otimizar as requisiçôes feitas pelos usuários do ambiente web.
