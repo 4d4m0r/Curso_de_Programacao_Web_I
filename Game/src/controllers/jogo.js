@@ -1,5 +1,5 @@
 import { Partida,Usuario } from "../models/index";
-import { Op } from "sequelize";
+import { Op } from "sequelize"; 
 
 const index = (req,res) =>{
     res.render("jogo/index");
@@ -23,7 +23,11 @@ const ranking = async (req,res) => {
     const partidas = await Partida.findAll({
         order: [
             ['pontuacao','DESC']
-        ]
+        ],
+        include:[{
+            model:Usuario,
+            required:true
+        }]
     });
     res.render("jogo/ranking",{
         partidas: partidas.map((partida)=> partida.toJSON())

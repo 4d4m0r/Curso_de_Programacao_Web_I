@@ -81,8 +81,8 @@
       let posSkier = skier.getBoundingClientRect();
 
       return {
-        posX: parseInt(posSkier.x),
-        posY:  parseInt(posSkier.y),
+        posX: parseInt(this.element.style.left),
+        posY:  parseInt(this.element.style.top),
         altura:  parseInt(posSkier.height),
         largura:  parseInt(posSkier.width)
       }
@@ -148,11 +148,8 @@
   }
   function morreu(skier){
     skier.vida--;
-    console.log(skier.vida);
-    console.log(skier.pontuacao);
     if(!(skier.vida === 0)){
       var vidaAtt = skier.vida;
-      console.log(skier.vida);
       vida.textContent = vidaAtt; 
       skier.element.className = 'para-baixo';
     }else if(skier.vida == 0){
