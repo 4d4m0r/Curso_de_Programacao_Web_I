@@ -1,8 +1,7 @@
 function apagarCurso(id){
     $.ajax({
-        url: `/curso/${id}`,
-        type: 'DELETE',
-
+        url: `/curso/remove/${id}`,
+        type: 'GET',
     })
     .done(function(msg){
         console.log(msg);

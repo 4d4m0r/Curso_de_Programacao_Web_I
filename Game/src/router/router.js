@@ -26,7 +26,7 @@ router.post("/curso/create",authCheck, cursoController.create);
 router.get("/curso/update/:id",authCheck, cursoController.update);
 router.post("/curso/update/:id",authCheck,cursoController.update);
 router.get("/curso/:id",authCheck, cursoController.read);
-router.delete("/curso/:id",authCheck, cursoController.remove);
+router.get("/curso/remove/:id",authCheck, cursoController.remove);
 
 router.get("/jogo/index",authCheck,jogoController.index);
 router.get("/jogo/ranking",authCheck, jogoController.ranking);

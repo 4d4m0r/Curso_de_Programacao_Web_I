@@ -55,6 +55,7 @@ async function update(req,res) {
 }
 async function remove(req,res) {
     const { id } = req.params;
+    console.log(id);
     try{
         await Curso.destroy( {where: { id: id } });
         res.send("Curso apagado");
